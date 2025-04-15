@@ -1,7 +1,7 @@
-/// app/(tabs)/cars/index.tsx
+/// app/(tabs)/cars.tsx
 
 import React from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { ThemedView } from '@/components/ThemedView';
 import { useCarData } from '@/hooks/useCarData';
@@ -13,13 +13,14 @@ export default function CarListScreen() {
   const router = useRouter();
 
   const handlePress = (car: Car) => {
-    const path = `/cars/${car.id}`;
-    console.log(`📦 Navigating to: ${path}`);
-    router.push(path);
+    router.push(`/cars/${car.id}` as const);
   };
 
   return (
     <ThemedView style={styles.container}>
+      {/* Figma-like Header */}
+      <Text style={styles.header}>Cars</Text>
+
       <FlatList
         data={cars}
         keyExtractor={(item) => item.id}
@@ -35,9 +36,16 @@ export default function CarListScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
+    backgroundColor: '#fff', 
+    paddingTop: 40,    // Enough top padding for a simple header
+    paddingHorizontal: 16,
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 16,
   },
   listContent: {
-    paddingBottom: 20,
+    paddingBottom: 32,
   },
 });

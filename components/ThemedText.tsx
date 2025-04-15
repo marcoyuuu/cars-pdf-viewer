@@ -1,11 +1,19 @@
-import { Text, type TextProps, StyleSheet } from 'react-native';
+// components/ThemedText.tsx
 
+import { Text, type TextProps, StyleSheet } from 'react-native';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
+  type?: 
+    | 'default'
+    | 'title'
+    | 'defaultSemiBold'
+    | 'subtitle'
+    | 'link'
+    | 'cardTitle'
+    | 'cardDescription';
 };
 
 export function ThemedText({
@@ -21,11 +29,13 @@ export function ThemedText({
     <Text
       style={[
         { color },
-        type === 'default' ? styles.default : undefined,
-        type === 'title' ? styles.title : undefined,
-        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
-        type === 'subtitle' ? styles.subtitle : undefined,
-        type === 'link' ? styles.link : undefined,
+        type === 'default' && styles.default,
+        type === 'title' && styles.title,
+        type === 'defaultSemiBold' && styles.defaultSemiBold,
+        type === 'subtitle' && styles.subtitle,
+        type === 'link' && styles.link,
+        type === 'cardTitle' && styles.cardTitle,
+        type === 'cardDescription' && styles.cardDescription,
         style,
       ]}
       {...rest}
@@ -57,4 +67,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#0a7ea4',
   },
+  // New Figma-based text variants
+  cardTitle: {
+    fontSize: 20,
+    lineHeight: 28,
+    fontWeight: '700',
+  },
+  cardDescription: {
+    fontSize: 14,
+    lineHeight: 20,
+    color: '#4B5563',
+  },  
 });

@@ -1,29 +1,34 @@
 {
   "cars": [
     {
-      "name": "Lamborghini",
+      "name": "lamborghini",
       "description": "A high-performance sports car known for its striking design and speed.",
-      "pdfFile": "lamborghini.pdf"
+      "pdfFile": "lamborghini.pdf",
+      "bgColor": "#fca5a5"
     },
     {
-      "name": "Ferrari",
+      "name": "ferrari",
       "description": "An iconic luxury car brand synonymous with speed and Italian craftsmanship.",
-      "pdfFile": "ferrari.pdf"
+      "pdfFile": "ferrari.pdf",
+      "bgColor": "#fdba74"
     },
     {
-      "name": "Porsche",
+      "name": "porsche",
       "description": "A premium sports car renowned for its engineering excellence and dynamic handling.",
-      "pdfFile": "porsche.pdf"
+      "pdfFile": "porsche.pdf",
+      "bgColor": "#86efac"
     },
     {
-      "name": "Mercedes",
+      "name": "mercedes",
       "description": "A symbol of luxury and innovation, offering a blend of performance and comfort.",
-      "pdfFile": "mercedes.pdf"
+      "pdfFile": "mercedes.pdf",
+      "bgColor": "#93c5fd"
     },
     {
-      "name": "GTR",
+      "name": "gtr",
       "description": "A powerful performance car celebrated for its advanced technology and racing heritage.",
-      "pdfFile": "gtr.pdf"
+      "pdfFile": "gtr.pdf",
+      "bgColor": "#d8b4fe"
     }
   ]
 }

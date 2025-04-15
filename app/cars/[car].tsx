@@ -1,4 +1,4 @@
-// app/(tabs)/cars/[car].tsx
+// app/cars/[car].tsx
 
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, StyleSheet } from 'react-native';
