@@ -1,6 +1,6 @@
-# Welcome to your Expo app 👋
+# Welcome to the Cars PDF Viewer App 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app). This app allows users to view car-related PDFs and images in an interactive and user-friendly interface.
 
 ## Get started
 
@@ -13,10 +13,10 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 2. Start the app
 
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+In the output, you'll find options to open the app in a:
 
 - [development build](https://docs.expo.dev/develop/development-builds/introduction/)
 - [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
@@ -24,6 +24,21 @@ In the output, you'll find options to open the app in a
 - [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+
+## Features
+
+- View car-related PDFs stored in the `assets/cars/pdfs` directory.
+- Browse car images located in the `assets/cars/images` directory.
+- Interactive UI components for a seamless user experience.
+
+## Project structure
+
+- **app/**: Contains the main application code, including file-based routing and screens.
+- **assets/**: Stores static assets like car images, PDFs, and fonts.
+- **components/**: Reusable UI components.
+- **constants/**: Application-wide constants.
+- **hooks/**: Custom React hooks for managing app logic.
+- **scripts/**: Utility scripts for project maintenance.
 
 ## Get a fresh project
 
