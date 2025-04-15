@@ -1,0 +1,24 @@
+{
+  "cars": [
+    {
+      "name": "Lamborghini",
+      "description": "A high-performance sports car known for its striking design and speed."
+    },
+    {
+      "name": "Ferrari",
+      "description": "An iconic luxury car brand synonymous with speed and Italian craftsmanship."
+    },
+    {
+      "name": "Porsche",
+      "description": "A premium sports car renowned for its engineering excellence and dynamic handling."
+    },
+    {
+      "name": "Mercedes",
+      "description": "A symbol of luxury and innovation, offering a blend of performance and comfort."
+    },
+    {
+      "name": "GTR",
+      "description": "A powerful performance car celebrated for its advanced technology and racing heritage."
+    }
+  ]
+}
