@@ -1,3 +1,5 @@
+// app/(tabs)/cars/[car].tsx
+
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, StyleSheet } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
@@ -5,7 +7,7 @@ import { WebView } from 'react-native-webview';
 import { Asset } from 'expo-asset';
 import { ThemedView } from '@/components/ThemedView';
 import { useCarData } from '@/hooks/useCarData';
-import { Car } from '../../../types/car';
+import { Car } from '../../types/car';
 
 export default function CarPDFViewer() {
   // Retrieve the dynamic route parameter (car ID) from Expo Router.
@@ -17,14 +19,23 @@ export default function CarPDFViewer() {
   const selectedCar: Car | undefined = cars.find((item) => item.id === carId);
 
   useEffect(() => {
-    if (selectedCar) {
-      // Resolve the static asset using Expo Asset. 
-      // `require()` returns a numeric reference which is resolved to a URI.
-      const asset = Asset.fromModule(selectedCar.pdf);
-      if (asset.uri) {
-        setSourceUri(asset.uri);
+    async function preparePDF() {
+      if (selectedCar) {
+        // Resolve the static asset for the PDF using Expo Asset.
+        const asset = Asset.fromModule(selectedCar.pdf);
+        // If the asset does not have a local URI, force download.
+        if (!asset.localUri) {
+          try {
+            await asset.downloadAsync();
+          } catch (error) {
+            console.error('Error downloading PDF asset:', error);
+          }
+        }
+        // Use the localUri if available, otherwise fall back to asset.uri.
+        setSourceUri(asset.localUri || asset.uri);
       }
     }
+    preparePDF();
   }, [selectedCar]);
 
   // If no matching car is found or the asset hasn't resolved yet, show a loading indicator.
@@ -42,6 +53,7 @@ export default function CarPDFViewer() {
         source={{ uri: sourceUri }}
         style={styles.webview}
         originWhitelist={['*']}
+        // Optionally include additional props for handling PDF zoom and navigation.
       />
     </ThemedView>
   );

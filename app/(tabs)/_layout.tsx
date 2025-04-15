@@ -1,3 +1,5 @@
+// app/(tabs)/_layout.tsx
+
 import { Tabs } from 'expo-router';
 import React from 'react';
 import { Platform } from 'react-native';
@@ -34,10 +36,10 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="cars"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Cars',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="car" color={color} />,
         }}
       />
     </Tabs>

@@ -11,16 +11,21 @@ type CarListItemProps = {
 };
 
 const CarListItem: React.FC<CarListItemProps> = ({ car, onPress }) => {
-  return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
-      <ThemedText type="title" style={styles.title}>
-        {car.name}
-      </ThemedText>
-      <ThemedText type="default" style={styles.description}>
-        {car.description}
-      </ThemedText>
-    </TouchableOpacity>
-  );
+    return (
+        <TouchableOpacity
+        style={styles.card}
+        onPress={() => {
+            console.log(`🟢 Tapped on ${car.name}`);
+            onPress();
+        }}>
+        <ThemedText type="title" style={styles.title}>
+            {car.name}
+        </ThemedText>
+        <ThemedText type="default" style={styles.description}>
+            {car.description}
+        </ThemedText>
+        </TouchableOpacity>
+    );
 };
 
 export default CarListItem;

@@ -1,21 +1,23 @@
-// app/cars/index.tsx
+/// app/(tabs)/cars/index.tsx
 
 import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 import { ThemedView } from '@/components/ThemedView';
 import { useCarData } from '@/hooks/useCarData';
-import { Car } from '../../../types/car';
-import CarListItem from '../../../components/CarListItem';
+import { Car } from '@/types/car';
+import CarListItem from '@/components/CarListItem';
 
 export default function CarListScreen() {
   const { cars } = useCarData();
   const router = useRouter();
 
   const handlePress = (car: Car) => {
-    router.push(`/(tabs)/cars/${car.id}`);
+    const path = `/cars/${car.id}`;
+    console.log(`📦 Navigating to: ${path}`);
+    router.push(path);
   };
-  
+
   return (
     <ThemedView style={styles.container}>
       <FlatList
